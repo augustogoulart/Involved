@@ -20,7 +20,14 @@ export const actions = {
     })
   },
   addLink({commit}, link) {
-    return LinkService.postLink(link).then(response => {
+    let payload = {
+        'url': link.url,
+        'category': 'software',
+        'title': 'Github - augustogoulart/involved',
+        'description': 'Learn modern web development on Instagram while building an app for online communities'
+    };
+
+    return LinkService.postLink(payload).then(response => {
       commit('ADD_LINK', response.data)
     })
   }
